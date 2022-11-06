@@ -1,0 +1,23 @@
+{
+  "name": "chat-app",
+  "version": "0.1.0",
+  "description": "a mini app to practice socket.io messaging",
+  "scripts": {
+    "test-all": "pnpm --stream -r test",
+    "start": "pnpm --stream -r start",
+    "dev": "pnpm --stream -r dev",
+    "start:dev": "pnpm --stream -r run start:dev",
+    "test": "jest --coverage --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HodRZ/chat-app.git"
+  },
+  "keywords": [],
+  "author": "HodRZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HodRZ/chat-app/issues"
+  },
+  "homepage": "https://github.com/HodRZ/chat-app#readme"
+}

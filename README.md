@@ -1,2 +1,3 @@
-# chat-app
-a mini app to practice socket.io messaging 
+# Chat-app
+
+a mini app to practice socket.io messaging
