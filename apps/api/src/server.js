@@ -28,9 +28,3 @@ const io = socket(server, {
 });
 
 require('./socket')(io);
-// io.on('connection', socket => {
-//     console.log(`socket: ${socket.id} connected`);
-// });
-// io.on('disconnect', socket => {
-//     console.log(`${socket.id} disconnected`);
-// });

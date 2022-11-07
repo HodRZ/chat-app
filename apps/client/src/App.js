@@ -18,13 +18,12 @@ function App() {
   useEffect(() => {
     const socket = io.connect(HOST);
     socket.on('connection', () => {
-      console.log(socket.id);
       console.log('connected To server');
     });
     setSocket(socket);
 
     socket.on('disconnect', () => {
-      console.log(`Socket ${socket} disconnected!`);
+      console.log(`Socket disconnected!`);
     });
   }, []);
   return (

@@ -5,7 +5,6 @@ function MessageContainer(props) {
     const [msgs, setMsgs] = useState([]);
 
     socket.on('new-message', message => {
-        console.log(socket.username);
         setMsgs([...msgs, message]);
     });
     return (
