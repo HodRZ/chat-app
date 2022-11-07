@@ -1,18 +1,16 @@
-// 'use strict';
-
-// const { socket } = require("../config");
-// const { io } = require("../server");
+'use strict';
 
 
 
-// // const io = socket(server, {
-// //     transports: ['websocket', 'polling'],
-// //     cors: {
-// //         origin: 'http://localhost:3000',
-// //         methods: ['GET', 'POST', 'PUT']
-// //     }
-// // })
+module.exports = function (io) {
+    io.on('connection', socket => {
+        console.log(`${socket.id} connected`);
+        socket.on('send', (data) => {
+            console.log(data);
+            socket.username = data.username;
+            const { message } = data;
+            io.emit('new-message', message);
+        });
+    });
 
-// io.on('connection', socket => {
-//     console.log(`${socket.id} connected`);
-// });
+};

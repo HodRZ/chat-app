@@ -1,25 +1,24 @@
-import React, { useEffect } from 'react';
-import { HOST } from '../config';
-import { io } from 'socket.io-client';
+import React, { useState } from 'react';
 
 
 function ChatRoom(props) {
+    const [socket, setSocket] = useState(props.socket);
 
-
-    useEffect(() => {
-        const socket = io.connect(HOST);
-        socket.on('connection', () => {
-            console.log(socket.id);
-            console.log('connected To server');
-        });
-        console.log(socket.id);
-        socket.on('disconnect', () => {
-            console.log(`Socket ${socket.id} disconnected!`);
-        });
-    });
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            message: e.target.message.value,
+            username: props?.user
+        };
+        socket.emit('send', data);
+    };
     return (
         <div>
-
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="message">message</label>
+                <input id='message' type="textarea" />
+                <button type='submit'>send</button>
+            </form>
         </div>
     );
 }
